@@ -41,8 +41,8 @@ const signin = async (req, res) => {
     res
       .cookie("auth_token", token, {
         httpOnly: true,
-        secure: true,
-        sameSite: "none",
+        secure: false,
+        sameSite: "None",
         maxAge: 3600000,
       })
       .redirect("/");
@@ -56,8 +56,8 @@ const signin = async (req, res) => {
 const signout = (req, res) => {
   res.clearCookie("auth_token", {
     httpOnly: true,
-    secure: true,
-    sameSite: "strict",
+    secure: false,
+    sameSite: "None",
   });
 
   res.redirect("/");
