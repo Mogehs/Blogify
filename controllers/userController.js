@@ -40,9 +40,6 @@ const signin = async (req, res) => {
     let token = jwt.sign(payload, secret, { expiresIn: "1h" });
     res
       .cookie("auth_token", token, {
-        httpOnly: true,
-        secure: false,
-        sameSite: "None",
         maxAge: 3600000,
       })
       .redirect("/");
@@ -55,8 +52,6 @@ const signin = async (req, res) => {
 
 const signout = (req, res) => {
   res.clearCookie("auth_token", {
-    httpOnly: true,
-    secure: false,
     sameSite: "None",
   });
 
