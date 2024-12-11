@@ -42,7 +42,7 @@ const signin = async (req, res) => {
       .cookie("auth_token", token, {
         httpOnly: true,
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
         maxAge: 3600000,
       })
       .redirect("/");
