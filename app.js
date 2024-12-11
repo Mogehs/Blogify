@@ -23,7 +23,7 @@ app.use("/user", userRouter);
 app.use("/blog", blogRouter);
 app.use("/comment", commentRouter);
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   dbConnect();
   console.log("Listening at PORT " + PORT);
 });
